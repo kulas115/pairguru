@@ -1,5 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'users' do
+    it { should belong_to(:user) }
+    it { should validate_presence_of(:user) }
+  end
+
+  context 'movie' do
+    it { should belong_to(:movie) }
+    it { should validate_presence_of(:movie) }
+  end
+
+  context 'content' do
+    it { should validate_presence_of(:content)}
+  end
 end
