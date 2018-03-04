@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/most_comments', to: "users#most_comments"
+
   devise_for :users
 
   root "home#welcome"

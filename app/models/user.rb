@@ -25,4 +25,13 @@ class User < ApplicationRecord
 
   has_many :comments
   validates :phone_number, format: { with: /\A[+]?\d+(?>[- .]\d+)*\z/, allow_nil: true }
+
+  scope :most_comments, -> {
+    select('users.id, users.name, comments.created_at, COUNT(comments.id) AS comments_count')
+      .joins(:comments)
+      .where(comments: { created_at: (Time.now - 7.days)..Time.now } )
+      .group(:id)
+      .limit(10)
+      .order('comments_count DESC')
+  }
 end
