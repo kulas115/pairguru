@@ -11,6 +11,7 @@ gem "jquery-rails"
 gem "sass-rails"
 gem "sqlite3"
 gem "uglifier"
+gem 'decent_exposure', '3.0.0'
 
 group :development do
   gem "better_errors"
