@@ -1,0 +1,11 @@
+= form_for movie do |f|
+  .row
+    .col-md-4
+      .form-group
+        = f.text_field :title, class: 'form-control'
+      .form-group
+        = f.text_field :description, class: 'form-control'
+      .form-group
+        = f.collection_select :genre_id, Genre.order(:name), :id, :name
+      .form-group
+        = f.submit 'Submit', class: "btn btn-primary btn-block"

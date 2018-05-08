@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get "movies"
     end
   end
-  resources :movies, only: [:index, :show] do
+  resources :movies, only: [:index, :show, :edit, :update] do
     member do
       get :send_info
     end
